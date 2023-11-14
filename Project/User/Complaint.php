@@ -3,15 +3,24 @@ session_start();
 ob_start();
 include('Head.php');
 include("../Assets/Connection/Connection.php");
+
 if (isset($_POST['btn_save'])) 
 {
-
-    $complaint= $_POST['txt_complaint'];
+    $complaintTitle = $_POST['txt_complaint_title'];
+    $complaintDetails = $_POST['txt_complaint'];
     $user_id = $_SESSION["uid"];
     $branch_id = $_GET['bid'];
-    $insert_booking_query = "INSERT INTO `tbl_complaint` (`complaint_date`, `complaint_details`, `user_id`, `branch_id`) 
-    VALUES (curdate(), '$complaint', '$user_id', '$branch_id')";
-    $con->query($insert_booking_query);
+
+    // Insert data into the tbl_complaint table
+    $insertComplaintQuery = "INSERT INTO `tbl_complaint` (`complaint_date`, `complaint_title`, `complaint_details`, `user_id`, `branch_id`) 
+    VALUES (curdate(), '$complaintTitle', '$complaintDetails', '$user_id', '$branch_id')";
+    
+    if ($con->query($insertComplaintQuery) === TRUE) {
+        // Display JavaScript alert after successful insertion
+        echo '<script>alert("Complaint sent to branch!");</script>';
+    } else {
+        echo "Error: " . $insertComplaintQuery . "<br>" . $con->error;
+    }
 }
 ?>
 
@@ -41,24 +50,41 @@ if (isset($_POST['btn_save']))
 </style>
 </head>
 <body>
-<form id="form1" name="form1" method="post" action="">
+<form id="form1" name="form1" method="post" action="" onsubmit="return validateForm()">
   <table width="500" border="0" align="center">
     
     <tr>
-      <td>Complaint</td>
-      <td><label for="txt_complaint"></label>
-      <textarea name="txt_complaint" id="txt_complaint" cols="45" rows="5"></textarea></td>
+      <td>Complaint Title</td>
+      <td>
+        <label for="txt_complaint_title"></label>
+        <input type="txt_complaint_title" name="txt_complaint_title" id="txt_complaint_title" required />
+      </td>
     </tr>
     <tr>
-      <td  colspan="2"><input type="submit" value="Submit" name="btn_save" style="color: blue;" /></td>
+      <td>Complaint Details</td>
+      <td>
+        <label for="txt_complaint"></label>
+        <textarea name="txt_complaint" id="txt_complaint" cols="45" rows="5" required></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Submit" name="btn_save" style="color: blue;" /></td>
     </tr>
   </table>
-  <br>
-  <br><br><br>
-  
-  <p>&nbsp;</p>
-  
 </form>
+<script>
+  function validateForm() {
+    var title = document.getElementById("txt_complaint_title").value;
+    var details = document.getElementById("txt_complaint").value;
+
+    if (title.trim() === "" || details.trim() === "") {
+      alert("Please provide both complaint title and details.");
+      return false; // Prevent form submission
+    }
+
+    return true; // Allow form submission
+  }
+</script>
 </body>
 <?php
 include('Foot.php');

@@ -13,7 +13,7 @@ include('Head.php');
                 <div class="p-3">
                     <!-- District 1 Map -->
                     <img class="img-fluid w-100" src="Assets/Files/Districts/trivandrum.jpg" alt="" style="height: 200px; object-fit: cover;">
-                    <a href="../Project/Districts/District1.html" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0;  background: rgba(0, 0, 0, .4);">
+                    <a href="../Project/Districts/District1.php" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0;  background: rgba(0, 0, 0, .4);">
                         <h4 class="text-center text-white font-weight-medium mb-3">Trivandrum</h4>
                     </a>
                 </div>
@@ -22,7 +22,7 @@ include('Head.php');
                 <div class="p-3">
                     <!-- District 2 Map -->
                     <img class="img-fluid w-100" src="Assets/Files/Districts/kottayam.jpg" alt="" style="height: 200px; object-fit: cover;">
-                    <a href="../Project/Districts/District2.html" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
+                    <a href="../Project/Districts/District2.php" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
                         <h4 class="text-center text-white font-weight-medium mb-3">Kottayam</h4>
                         
                     </a>
@@ -32,7 +32,7 @@ include('Head.php');
                 <div class="p-3">
                     <!-- District 3 Map -->
                     <img class="img-fluid w-100" src="Assets/Files/Districts/ernakulam.jpg" alt="" style="height: 200px; object-fit: cover;">
-                    <a href="../Project/Districts/District3.html" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
+                    <a href="../Project/Districts/District3.php" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
                         <h4 class="text-center text-white font-weight-medium mb-3">Ernakulam</h4>
                         
                     </a>
@@ -42,7 +42,7 @@ include('Head.php');
                 <div class="p-3">
                     <!-- District 4 Map -->
                     <img class="img-fluid w-100" src="Assets/Files/Districts/Thrissur.jpg" alt="" style="height: 200px; object-fit: cover;">
-                    <a href="../Project/Districts/District4.html" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
+                    <a href="../Project/Districts/District4.php" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
                         <h4 class="text-center text-white font-weight-medium mb-3">Thrissur</h4>
                         
                     </a>
@@ -52,7 +52,7 @@ include('Head.php');
                 <div class="p-3">
                     <!-- District 5 Map -->
                     <img class="img-fluid w-100" src="Assets/Files/Districts/malappuram.jpg" alt="" style="height: 200px; object-fit: cover;">
-                    <a href="../Project/Districts/District5.html" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
+                    <a href="../Project/Districts/District5.php" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
                         <h4 class="text-center text-white font-weight-medium mb-3">Malappuram</h4>
                         
                     </a>
@@ -61,7 +61,7 @@ include('Head.php');
                 <div class="p-3">
                     <!-- District 6 Map -->
                     <img class="img-fluid w-100" src="Assets/Files/Districts/calicut.jpg" alt="" style="height: 200px; object-fit: cover;">
-                    <a href="../Project/Districts/District6.html" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
+                    <a href="../Project/Districts/District6.php" class="position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center text-decoration-none" style="top: 0; left: 0; background: rgba(0, 0, 0, .4);">
                         <h4 class="text-center text-white font-weight-medium mb-3">Calicut</h4>
                         
                     </a>

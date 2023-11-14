@@ -30,7 +30,7 @@ $data=$result->fetch_assoc();
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="index.html" class="logo">
+				<a href="index.php" class="logo">
 				<video autoplay muted loop width=100%>
                     <source src="../Assets/Files/Logo/Laun.mp4" type="video/mp4">
                     Your browser does not support the video tag.

@@ -44,12 +44,19 @@ include('Head.php');
 .display-3.text-center.mb-5 {
     font-size: 24px; /* Adjust the size as needed */
   }
+th {
+    font-weight: bold; 
+    font-size: 20px;/* Make text in <th> elements bold */
+}
+td{
+    font-size: 18px;
+}
 </style>
 <body>
     <div>
-<h1 class="display-4 text-center mb-5">Explore Our Branches</h1>
+<h1 class="display-4 text-center mb-5">Our Branches</h1>
 <div>
-<h3  class="display-3 text-center mb-5" >Select your nearest Branch</h3>
+<h3  class="display-3 text-center mb-5" >Select the branch you wish to Complaint</h3>
     </div>
     </div>
     <form id="form1" name="form1" method="post" action="" onsubmit="return validateForm()">
@@ -73,35 +80,7 @@ include('Head.php');
       <td><input name="btn_search" type="submit" value="search"/></td>
 </tr>
 </table>
-<br><br><br><br>
-<table width="500" border="1" align="center">
-    <tr>
-      <th>Sl.no</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Date</th>
-      <th>Reply</th>
-    </tr>
-    <?php 
-        $i=0;
-        $sel="select * from tbl_complaint where user_id='".$_SESSION['uid']."'";
-        $row=$con->query($sel);
-        while($data=$row->fetch_assoc())
-        {
-            $i++;
-    ?>
-    <tr>
-      <td><?php echo $i; ?></td>
-      <td><?php ?></td>
-      <td><?php echo $data['complaint_details']; ?></td>
-      <td><?php echo $data['complaint_date'];?></td>
-      <td><?php echo $data['complaint_reply'];?></td>
-    </tr>
-    <?php } ?>
-    
-  </table>
- 
-      
+<br><br><br><br>    
 <div class="main-div">
 <?php
 if (isset($_POST['btn_search'])) {
@@ -154,7 +133,6 @@ function validateForm() {
     return true; // Allow form submission for other selected values
 }
 </script>
-
 <?php
 include('Foot.php');
 ob_flush();

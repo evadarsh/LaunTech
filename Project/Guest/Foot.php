@@ -2,7 +2,7 @@
 <div class="container-fluid bg-primary text-white mt-5 pt-5 px-sm-3 px-md-5">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
-                <a href="index.html"><video autoplay loop muted  width="300" height="100">
+                <a href="index.php"><video autoplay loop muted  width="300" height="100">
                     <source src="../Assets/Files/Logo/LaunFooter.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video></a>

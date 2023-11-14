@@ -6,19 +6,7 @@ include('Head.php');
 $selqry="select * from tbl_user u inner join tbl_place  inner join tbl_district   where user_id=".$_SESSION['uid'] ;
 $result=$con->query($selqry);
 $data=$result->fetch_assoc();
-
 ?> 
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

@@ -2,56 +2,68 @@
 session_start();
 ob_start();
 include('Head.php');
-include("Assets/Connection/Connection.php");
-// Your query to retrieve category and subcategory data
-$query = "SELECT c.category_name, s.subcategory_name, s.subcategory_price
-          FROM tbl_category c
-          INNER JOIN tbl_subcategory s ON c.category_id = s.category_id";
-
-$result = $con->query($query); // Use $con to execute the query
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<body>
-    <title>Category and Subcategory </title>
+    <title>Category and Subcategory</title>
     <style>
+        body {
+            margin: 0;
+        }
+
         .table-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Ensure the table is centered vertically on the page */
+            height: 100vh;
         }
 
         table {
             border-collapse: collapse;
-            width: 80%; /* Adjust the width as needed */
-            margin: 0 auto; /* Center the table horizontally */
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: animateTableBackground 10s infinite linear; /* Adjusted duration */
+            background: radial-gradient(#57C2D3, white);
+            background-size: 200% 200%; /* Fill the animation in the whole table */
+        }
+
+        @keyframes animateTableBackground {
+            0%, 100% {
+                background-position: 0 0; /* Initial position */
+            }
+            50% {
+                background-position: 100% 100%; /* Final position */
+            }
         }
 
         th, td {
-    border: 3px solid black;
-    padding: 10px;
-    text-align: center;
-    color: black; /* Set text color to black */
-}
+            border: 3px;
+            padding: 10px;
+            text-align: center;
+            color: black;
+        }
 
-th {
-    font-weight: bold; 
-    font-size: 20px;/* Make text in <th> elements bold */
-}
-td{
-    font-size: 18px;
-}
+        th {
+            font-weight: bold;
+            font-size: 20px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        td {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
-<h1 style="text-align: center;">PRICE LIST</h1>
+    <h1 style="text-align: center;">PRICE LIST</h1>
 
     <?php
     include("Assets/Connection/Connection.php");
 
-    // Query to retrieve categories
     $categoryQuery = "SELECT * FROM tbl_category";
     $categoryResult = $con->query($categoryQuery);
     ?>
@@ -69,7 +81,6 @@ td{
             $categoryId = $row['category_id'];
             $categoryName = $row['category_name'];
             
-            // Query to retrieve subcategories for the selected category
             $subcategoryQuery = "SELECT subcategory_name, subcategory_price FROM tbl_subcategory WHERE category_id = $categoryId";
             $subcategoryResult = $con->query($subcategoryQuery);
             
@@ -88,7 +99,6 @@ td{
         ?>
     </table>
 
-    <!-- Close the database connection -->
     <?php
     $con->close();
     ?>
@@ -111,4 +121,3 @@ include('Foot.php');
 ob_flush();
 ?>
 </html>
-

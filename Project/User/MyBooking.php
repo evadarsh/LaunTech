@@ -42,7 +42,7 @@ if(isset($_GET['bid'])){
 </style>
 </head>
 <body>
-<table cellpadding="10" border='1'>
+<table cellpadding="10" border='1' align="center">
     <tr style="color: black; font-weight: bold;">
         <td>Sl.No</td>
         <td>Branch</td>

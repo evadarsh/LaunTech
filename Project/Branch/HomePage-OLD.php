@@ -77,7 +77,7 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <!-- Navigation Links -->
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="index.php" class="nav-item nav-link active">Home</a>
                         <a href="MyProfile.php" class="nav-item nav-link">My Profile</a>
                         <a href="Bookings.php" class="nav-item nav-link">Bookings</a>
                         <a href="pricing.html" class="nav-item nav-link">Pricing</a>

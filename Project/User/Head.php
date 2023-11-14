@@ -91,17 +91,23 @@
                             <a href="PackageSubscribe.php" class="nav-item nav-link">Subscribe Package</a>   
                         </div>
                         </div>
-                        <a href="MyBooking.php" class="nav-item nav-link">My Bookings</a>
-                        <a href="ComplaintBranch.php" class="nav-item nav-link">Complaints</a>
+                        <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Complaints</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="ComplaintBranch.php" class="nav-item nav-link">New Complaint</a>
+                                <a href="MyComplaints.php" class="nav-item nav-link">My Complaints</a>
+                            </div>
+                        </div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="MyProfile.php" class="nav-item nav-link">My Profile</a>
+                                <a href="MyBooking.php" class="nav-item nav-link">My Bookings</a>
                                 <a href="MyPackage.php" class="nav-item nav-link">My Package</a>
+                                <a href="MyProfile.php" class="nav-item nav-link">My Profile</a>
                                 <a href="EditProfile.php" class="nav-item nav-link">Edit Profile</a>
                                 <a href="ChangePassword.php" class="nav-item nav-link">Change password</a>
                             </div>
-                        </div>
+                            </div>
                         <a href="Logout.php" class="nav-item nav-link">Logout</a>
                     </div>
                     <!-- Navigation Links -->
