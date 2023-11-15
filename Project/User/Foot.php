@@ -64,7 +64,14 @@
 
     <!-- Template Javascript -->
     <script src="../Assets/Templates/Main/js/main.js"></script>
-    
+    <script>
+    function confirmLogout() {
+        var confirmation = confirm("Are you sure you want to logout?");
+        if (confirmation) {
+            window.location.href = "Logout.php";
+        }
+    }
+</script>
 </body>
 
 </html>

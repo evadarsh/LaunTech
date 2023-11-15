@@ -108,7 +108,7 @@
                                 <a href="ChangePassword.php" class="nav-item nav-link">Change password</a>
                             </div>
                             </div>
-                        <a href="Logout.php" class="nav-item nav-link">Logout</a>
+                        <a href="Logout.php" class="nav-item nav-link" onclick="confirmLogout()">Logout</a>
                     </div>
                     <!-- Navigation Links -->
                 </div>
