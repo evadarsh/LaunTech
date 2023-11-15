@@ -106,7 +106,7 @@ if(isset($_GET['bid'])){
             <?php
             if($data['booking_status']<=1){
                 ?>
-                <a href="MyBooking.php?bid=<?php echo $data['booking_id'] ?>&st=7">Cancel</a><br>
+                <a href="MyBooking.php?bid=<?php echo $data['booking_id'] ?>&st=7" onclick="confirmCancel()">Cancel</a><br>
                 <?php
             }
             else if($data['booking_status']==4){
@@ -132,7 +132,14 @@ if(isset($_GET['bid'])){
     }
     ?>
 </table>
-
+<script>
+function confirmCancel() {
+        var confirmation = confirm("Are you sure you want to cancel the booking?");
+        if (confirmation) {
+            window.location.href = "MyBooking.php";
+        }
+    }
+</script>
 </body>
 <?php
 include('Foot.php');
