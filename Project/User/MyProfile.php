@@ -3,7 +3,7 @@ include("../Assets/Connection/Connection.php");
 session_start();
 ob_start();
 include('Head.php');
-$selqry="select * from tbl_user u inner join tbl_place  inner join tbl_district   where user_id=".$_SESSION['uid'] ;
+$selqry="select * from tbl_user u inner join tbl_place p on p.place_id=u.place_id  inner join tbl_district d  on d.district_id=p.district_id where user_id=".$_SESSION['uid'] ;
 $result=$con->query($selqry);
 $data=$result->fetch_assoc();
 ?> 
