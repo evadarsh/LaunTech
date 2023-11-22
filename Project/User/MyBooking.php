@@ -119,7 +119,7 @@ if(isset($_GET['bid'])){
                 <a href="Review.php?bid=<?php echo $data['booking_id'] ?>">Review</a><br>
                 <?php
             }
-            if($data['booking_status']>=4){
+            if($data['booking_status'] >4 && $data['booking_status'] != 7) {
                 ?>
                 <a href='bill.php?bid=<?php echo $data['booking_id'] ?>' target='_blank'>View Bill</a>
                 <?php

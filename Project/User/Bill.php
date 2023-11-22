@@ -53,9 +53,6 @@ else{
       }
       pre,
       p {
-        /* width: 99%; */
-        /* overflow: auto; */
-        /* bpicklist: 1px solid #aaa; */
         padding: 0;
         margin: 0;
       }
@@ -79,9 +76,6 @@ else{
       .table-b th {
         border: 1px solid #ddd;
       }
-      th {
-        /* background-color: #ddd; */
-      }
       .hm-p td,
       .hm-p th {
         padding: 3px 0px;
@@ -89,7 +83,7 @@ else{
       .cropped {
         float: right;
         margin-bottom: 20px;
-        height: 100px; /* height of container */
+        height: 100px; 
         overflow: hidden;
       }
       .cropped img {
@@ -191,8 +185,12 @@ else{
             </td>
             <td colspan="3" style="width: 300px">
               <h4 style="margin: 0; color: black;">Sold By:</h4>
-              <p style="color: white;">
+              <p style="color: black; font-size:15px;">
                 <?php echo $data["branch_name"] ?>
+                <p style="color: black; font-size:15px;">
+                <?php echo $data["branch_address"] ?>,
+                <?php echo $data["branch_contact"] ?>
+                </p>
               </p>
             </td>
           </tr>

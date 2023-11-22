@@ -31,8 +31,10 @@ require 'phpMail/src/SMTP.php';
             body{
                 background: #2196F3;
                 margin: 0 10px;
-            }
-
+                background-image: url('../Assets/Files/pay.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+  }
             .payment{
                 background: #f8f8f8;
                 max-width: 360px;
@@ -242,7 +244,7 @@ else{
           
 
             // Send the email with user's email and password
-            $mail->Subject = "Welcome to LaunTech, $userName";
+            $mail->Subject = "Payment Successfull LaunTech, $userName";
             $mail->Body = '<html>
             <head>
               <meta charset="utf-8" />

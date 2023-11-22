@@ -4,8 +4,18 @@ include("../Assets/Connection/Connection.php");
 $selqry="select * from tbl_branch u inner join tbl_place  inner join tbl_district   where branch_id=".$_SESSION['bid'] ;
 $result=$con->query($selqry);
 $data=$result->fetch_assoc();
+// Assuming you have a function to fetch the total number of bookings
+$bookingCountQry = "SELECT COUNT(*) AS total_bookings FROM tbl_booking WHERE branch_id=" . $_SESSION['bid'];
+$bookingCountResult = $con->query($bookingCountQry);
+$bookingCountData = $bookingCountResult->fetch_assoc();
+$totalBookingsNumber = $bookingCountData["total_bookings"];
 
-?> 
+// Assuming you have a function to fetch the total amount of bookings
+$bookingAmountQry = "SELECT SUM(booking_amount) AS total_bookings FROM tbl_booking WHERE branch_id=" . $_SESSION['bid'];
+$bookingAmountResult = $con->query($bookingAmountQry);
+$bookingAmountData = $bookingAmountResult->fetch_assoc();
+$totalBookingsAmount = $bookingAmountData["total_bookings"];
+?>
 
 <!DOCTYPE html>
 <html lang="en">

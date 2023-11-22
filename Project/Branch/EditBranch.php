@@ -11,10 +11,14 @@ $data=$result->fetch_assoc();
 
 if(isset($_POST['btn_submit']))
 {
-	$upQry="update tbl_branch set   branch_name='".$_POST["txtname"]."',branch_contact='".$_POST["txtcontact"]."'  where branch_id=$_SESSION[bid]";
-	echo $upQry;
-	if($con->query($upQry))
-	{
+    $upQry = "update tbl_branch set 
+              branch_name='" . $_POST["txtname"] . "',
+              branch_contact='" . $_POST["txtcontact"] . "',
+              branch_address='" . $_POST["txtaddress"] . "' 
+              where branch_id=$_SESSION[bid]";
+
+    if($con->query($upQry))
+    {
 		?>
         <script>
 			alert("Updated")
@@ -67,6 +71,12 @@ if(isset($_POST['btn_submit']))
                         <td style="color: black;">
                             <input type="text" name="txtcontact" class="form-control" value="<?php echo $data["branch_contact"]; ?>" />
                         </td>
+                    </tr>
+                    <tr>
+                    <td style="color: black; font-weight: bold;">Address</td>
+                    <td style="color: black;">
+                    <textarea name="txtaddress" class="form-control"><?php echo $data["branch_address"]; ?></textarea>
+                    </td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center">

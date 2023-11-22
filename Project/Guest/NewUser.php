@@ -57,15 +57,16 @@ if (isset($_POST['btn_submit'])) {
             $registrationSuccess = true;
 
             // Send WhatsApp message after successful registration
-            $wp = new WhatsappAPI("4894", "6eab76fe524510d4371c0c26e22b5223f1b71e63"); // Replace with your user id and API key
+            $wp = new WhatsappAPI("4989", "2d7c3aa0542a2c2f85b1467e4161989907cc8a93"); // Replace with your user id and API key
             
             // Use the formatted mobile number with country code +91
             $userNumber = $contact; // Use the user's registered WhatsApp number from the form
 
             $laundryBagEmoji = "👕"; // Unicode character for laundry bag emoji
-            $whatsappMessage = "Welcome to LaunTech, your modern laundry solution. We've successfully completed your registration, and we're thrilled to have you on board! $laundryBagEmoji #LaundryMadeEasy";
-            $whatsappMessage = "Your Username: $userEmail Your Password: $userPassword";
-            $whatsappMessage = "#LaundryMadeEasy";
+            $whatsappMessage = "Welcome to LaunTech, your modern laundry solution. We've successfully completed your registration, and we're thrilled to have you on board! $laundryBagEmoji\n";
+            $whatsappMessage .= "Your Username: $email\n"; 
+            $whatsappMessage .= "Your Password: $password\n";
+            $whatsappMessage .= "#LaundryMadeEasy";
             $whatsappStatus = $wp->sendText($userNumber, $whatsappMessage);
             $whatsappStatus = json_decode($whatsappStatus);
             
@@ -126,7 +127,7 @@ if (isset($_POST['btn_submit'])) {
                 <p class="first-paragraph">Your registration on the Launtech Online Laundry Management System has been successfully completed.</p>
                 <p class="other-paragraphs black-text"><strong>User ID:</strong> ' . $userEmail . '</p>
                 <p class="other-paragraphs"><strong>User Password:</strong> ' . $userPassword . '</p>
-                <p class="other-paragraphs">Please donot share your username and password with anybody.</p>
+                <p class="other-paragraphs" style="color: red;">Please donot share your username and password with anybody.</p>
             </body>
             </html>';
 
@@ -143,21 +144,17 @@ if (isset($_POST['btn_submit'])) {
     }
 }
 ?>
-<!-- Rest of your HTML and JavaScript code remains the same -->
-<!-- Rest of your HTML and JavaScript code remains the same -->
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>LuanTech::Guest::NewUser</title>
-    <!-- Add custom CSS for image preview and centering -->
     <style>
 
     body {
-    background-image: url('../Assets/Files/slider-bg.jpg'); /* Replace 'path-to-your-image' with the actual path to your image file */
-    background-size: cover; /* This property ensures the image covers the entire background */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-image: url('../Assets/Files/slide.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
   }
         .image-preview-container {
     width: 100%;
@@ -174,7 +171,7 @@ if (isset($_POST['btn_submit'])) {
     background-position: center center;
     background-repeat: no-repeat;
     border: 2px solid #ccc;
-    position: relative; /* Add position relative */
+    position: relative; 
 }
 
 .image-preview-button {
@@ -183,10 +180,10 @@ if (isset($_POST['btn_submit'])) {
     text-align: center;
     font-size: 32px;
     color: #007bff;
-    position: absolute; /* Add position absolute */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the button */
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
     </style>
