@@ -4,7 +4,7 @@ session_start();
 ob_start();
 include('Head.php');
 
-require 'WhatsappAPI.php'; // Include the WhatsApp API class
+require 'WhatsappAPI.php'; 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -12,16 +12,15 @@ require 'phpMail/src/Exception.php';
 require 'phpMail/src/PHPMailer.php';
 require 'phpMail/src/SMTP.php';
 
-// Initialize variables to store the uploaded image filename and registration success flag
+
 $uploadedImage = '';
 $registrationSuccess = false;
 
-// Function to validate email address format
+
 function validateEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-// Function to validate mobile number (10 digits)
 function validateMobile($mobile) {
     return preg_match('/^[0-9]{10}$/', $mobile);
 }
@@ -30,7 +29,7 @@ if (isset($_POST['btn_submit'])) {
     $name = $_POST['txt_name'];
     $gender = $_POST['radio_gen'];
     
-    // Validate and format the mobile number with '+91'
+    
     $contact = '+91' . preg_replace('/[^0-9]/', '', $_POST['txt_contact']);
     
     $email = $_POST['txt_email'];
@@ -38,11 +37,11 @@ if (isset($_POST['btn_submit'])) {
     $address = $_POST['txt_address'];
     $password = $_POST['txt_password'];
 
-    // Validate email
+    
     if (!validateEmail($email)) {
         echo "<script>alert('Invalid email address');</script>";
     } else {
-        // Check if an image was uploaded
+        
         if (isset($_FILES['file_image']) && $_FILES['file_image']['error'] === 0) {
             $image = $_FILES['file_image']['name'];
             $path = $_FILES['file_image']['tmp_name'];
@@ -56,13 +55,12 @@ if (isset($_POST['btn_submit'])) {
         if ($con->query($insqry)) {
             $registrationSuccess = true;
 
-            // Send WhatsApp message after successful registration
-            $wp = new WhatsappAPI("4989", "2d7c3aa0542a2c2f85b1467e4161989907cc8a93"); // Replace with your user id and API key
             
-            // Use the formatted mobile number with country code +91
-            $userNumber = $contact; // Use the user's registered WhatsApp number from the form
+            $wp = new WhatsappAPI("4989", "2d7c3aa0542a2c2f85b1467e4161989907cc8a93"); 
+            
+            $userNumber = $contact; 
 
-            $laundryBagEmoji = "👕"; // Unicode character for laundry bag emoji
+            $laundryBagEmoji = "👕"; 
             $whatsappMessage = "Welcome to LaunTech, your modern laundry solution. We've successfully completed your registration, and we're thrilled to have you on board! $laundryBagEmoji\n";
             $whatsappMessage .= "Your Username: $email\n"; 
             $whatsappMessage .= "Your Password: $password\n";
@@ -80,29 +78,28 @@ if (isset($_POST['btn_submit'])) {
             }
 
 
-            // Send email after successful registration
             $mail = new PHPMailer(true);
 
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'launtech2023@gmail.com'; // Your Gmail
-            $mail->Password = 'fnotbyphlsbvtnwo'; // Your Gmail app password
+            $mail->Username = 'launtech2023@gmail.com'; 
+            $mail->Password = 'fnotbyphlsbvtnwo'; 
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
-            $mail->setFrom('launtech2023@gmail.com'); // Your Gmail
+            $mail->setFrom('launtech2023@gmail.com'); 
 
             $mail->addAddress($_POST["txt_email"]);
 
             $mail->isHTML(true);
 
-            // Collect user's email and password
+            
             $userName = $_POST['txt_name'];
             $userEmail = $_POST['txt_email'];
             $userPassword = $_POST['txt_password'];
 
-            // Send the email with user's email and password
+           
             $mail->Subject = "Welcome to LaunTech, $userName";
             $mail->Body = '<html>
             <head>
@@ -132,10 +129,10 @@ if (isset($_POST['btn_submit'])) {
             </html>';
 
             if ($mail->send()) {
-                // Email sent successfully
+                
                 echo 'Email sent successfully';
             } else {
-                // Email could not be sent
+                
                 echo 'Email could not be sent. Error: ' . $mail->ErrorInfo;
             }
         } else {
@@ -312,7 +309,7 @@ if (isset($_POST['btn_submit'])) {
             reader.onloadend = function () {
                 preview.style.backgroundImage = "url('" + reader.result + "')";
 
-                // Hide the "+" button after previewing the image
+                
                 button.style.display = 'none';
             }
 
@@ -320,11 +317,11 @@ if (isset($_POST['btn_submit'])) {
                 reader.readAsDataURL(file);
             } else {
                 preview.style.backgroundImage = null;
-                button.style.display = 'block'; // Show the "+" button
+                button.style.display = 'block'; 
             }
         }
 
-        // View Password button functionality
+        
         var viewPasswordBtn = document.getElementById('viewPasswordBtn');
         var txtPassword = document.getElementById('txt_password');
         viewPasswordBtn.addEventListener('click', function () {
