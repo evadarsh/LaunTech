@@ -198,24 +198,22 @@ if($dataCheck=$resCheck->fetch_assoc())
 else{
     $discountPerc=0;
 }
-            // Send email after successful registration
+            
             $mail = new PHPMailer(true);
 
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'launtech2023@gmail.com'; // Your Gmail
-            $mail->Password = 'fnotbyphlsbvtnwo'; // Your Gmail app password
+            $mail->Username = 'launtech2023@gmail.com'; 
+            $mail->Password = 'fnotbyphlsbvtnwo'; 
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
-            $mail->setFrom('launtech2023@gmail.com'); // Your Gmail
+            $mail->setFrom('launtech2023@gmail.com'); 
 
             $mail->addAddress($dataUser["user_email"]);
 
             $mail->isHTML(true);
-
-            // Collect user's email and password
             $userName = $dataUser['user_name'];
 
             $mailc="";

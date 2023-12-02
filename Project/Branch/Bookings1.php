@@ -2,6 +2,7 @@
 include("../Assets/Connection/Connection.php");
 ob_start();
 include('Head.php');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -10,47 +11,59 @@ require 'phpMail/src/PHPMailer.php';
 require 'phpMail/src/SMTP.php';
 
 if (isset($_GET['bid'])) {
-    $updQry = "UPDATE tbl_booking SET booking_status=" . $_GET['st'] . " WHERE booking_id=" . $_GET['bid'];
+    $bookingId = $_GET['bid'];
+    $newStatus = $_GET['st'];
 
-    if ($con->query($updQry)) {
-        // Retrieve the user's email address
-        $userEmailQuery = "SELECT user_email FROM tbl_user WHERE user_id = " . $data['user_id'];
-        $userEmailResult = $con->query($userEmailQuery);
-        $userEmailData = $userEmailResult->fetch_assoc();
-        $userEmail = $userEmailData['user_email'];
+    $selQry = "SELECT * FROM tbl_booking b INNER JOIN tbl_user u ON u.user_id=b.user_id WHERE b.booking_id = $bookingId AND b.branch_id=" . $_SESSION['bid'];
+    $res = $con->query($selQry);
 
-        // Send an email to the user using PHPMailer
+    if ($res->num_rows > 0) {
+        $data = $res->fetch_assoc();
+
+        
+        $userId = $data['user_id'];
+        $userContactQuery = "SELECT user_contact, user_email FROM tbl_user WHERE user_id = $userId";
+        $userContactResult = $con->query($userContactQuery);
+        $userContactData = $userContactResult->fetch_assoc();
+        $userContact = $userContactData['user_contact'];
+        $userEmail = $userContactData['user_email'];
+
+        
         $mail = new PHPMailer(true);
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Replace with your SMTP server
+        $mail->Host = 'smtp.gmail.com'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 'launtech2023@gmail.com'; // Replace with your email address
-        $mail->Password = 'fnotbyphlsbvtnwo'; // Replace with your email password
+        $mail->Username = 'launtech2023@gmail.com'; 
+        $mail->Password = 'fnotbyphlsbvtnwo'; 
         $mail->SMTPSecure = 'ssl';
-        $mail->Port = 465 ;
+        $mail->Port = 465;
 
-        $mail->setFrom('launtech2023@gmail.com', 'LaunTechs'); // Replace with your email and name
+        $mail->setFrom('launtech2023@gmail.com', 'Laun Tech'); 
         $mail->addAddress($userEmail);
         $mail->Subject = "Booking Status Update";
-        $mail->Body = "Your booking status has been updated to: " . $_GET['st'];
+        $mail->Body = "Your booking status has been updated to: $newStatus";
 
         try {
+            $mail->isHTML(true);
+            $mail->Subject = "Booking Status Update";
+            $mail->Body = "Your booking status has been updated to: $newStatus<br>Status Message: $statusMessage";
+        
             $mail->send();
-            echo "Email sent to user: " . $userEmail;
+            echo "Email sent to user: $userEmail<br>";
         } catch (Exception $e) {
             echo "Email sending failed: " . $mail->ErrorInfo;
         }
-
+        
         ?>
         <script>
             alert('Updated');
             window.location = "Bookings.php";
         </script>
         <?php
+    } else {
+        echo "Invalid booking ID or branch";
     }
 }
-// ... (the rest of your code)
-
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +71,7 @@ if (isset($_GET['bid'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Booking</title>
 </head>
 <body>
 <table class="table table-bordered table-striped">

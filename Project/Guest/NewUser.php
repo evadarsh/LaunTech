@@ -21,6 +21,7 @@ function validateEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
+
 function validateMobile($mobile) {
     return preg_match('/^[0-9]{10}$/', $mobile);
 }
@@ -37,7 +38,7 @@ if (isset($_POST['btn_submit'])) {
     $address = $_POST['txt_address'];
     $password = $_POST['txt_password'];
 
-    
+   
     if (!validateEmail($email)) {
         echo "<script>alert('Invalid email address');</script>";
     } else {
@@ -57,6 +58,7 @@ if (isset($_POST['btn_submit'])) {
 
             
             $wp = new WhatsappAPI("4989", "2d7c3aa0542a2c2f85b1467e4161989907cc8a93"); 
+            
             
             $userNumber = $contact; 
 
@@ -78,6 +80,7 @@ if (isset($_POST['btn_submit'])) {
             }
 
 
+            
             $mail = new PHPMailer(true);
 
             $mail->isSMTP();
@@ -99,7 +102,7 @@ if (isset($_POST['btn_submit'])) {
             $userEmail = $_POST['txt_email'];
             $userPassword = $_POST['txt_password'];
 
-           
+            
             $mail->Subject = "Welcome to LaunTech, $userName";
             $mail->Body = '<html>
             <head>
@@ -129,10 +132,10 @@ if (isset($_POST['btn_submit'])) {
             </html>';
 
             if ($mail->send()) {
-                
+                // Email sent successfully
                 echo 'Email sent successfully';
             } else {
-                
+                // Email could not be sent
                 echo 'Email could not be sent. Error: ' . $mail->ErrorInfo;
             }
         } else {
@@ -309,7 +312,7 @@ if (isset($_POST['btn_submit'])) {
             reader.onloadend = function () {
                 preview.style.backgroundImage = "url('" + reader.result + "')";
 
-                
+                // Hide the "+" button after previewing the image
                 button.style.display = 'none';
             }
 
@@ -317,11 +320,11 @@ if (isset($_POST['btn_submit'])) {
                 reader.readAsDataURL(file);
             } else {
                 preview.style.backgroundImage = null;
-                button.style.display = 'block'; 
+                button.style.display = 'block'; // Show the "+" button
             }
         }
 
-        
+        // View Password button functionality
         var viewPasswordBtn = document.getElementById('viewPasswordBtn');
         var txtPassword = document.getElementById('txt_password');
         viewPasswordBtn.addEventListener('click', function () {
