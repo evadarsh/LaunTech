@@ -19,7 +19,6 @@ if (isset($_GET['bid'])) {
 
     if ($res->num_rows > 0) {
         $data = $res->fetch_assoc();
-
         $userId = $data['user_id'];
         $userContactQuery = "SELECT user_contact, user_email FROM tbl_user WHERE user_id = $userId";
         $userContactResult = $con->query($userContactQuery);
@@ -38,9 +37,29 @@ if (isset($_GET['bid'])) {
 
         $mail->setFrom('launtech2023@gmail.com', 'Laun Tech');
         $mail->addAddress($userEmail);
-        $mail->Subject = "Booking Status Update";
+        // Set $newStatus based on existing status values
+        $newStatus = "New Request";
+        if ($data['booking_status'] == 0) {
+        } else if ($data['booking_status'] == 1) {
+            $newStatus = "Request Accepted";
+        } else if ($data['booking_status'] == 2) {
+            $newStatus = "Request Rejected";
+        } else if ($data['booking_status'] == 3) {
+            $newStatus = "Cloth Picked Up";
+        } else if ($data['booking_status'] == 4) {
+            $newStatus = "Washing Finished";
+        } else if ($data['booking_status'] == 5) {
+            $newStatus = "Payment Completed";
+        } else if ($data['booking_status'] == 6) {
+            $newStatus = "Cloths Returned";
+        } else if ($data['booking_status'] == 7) {
+            $newStatus = "Request Cancelled by User";
+        }
+        // Update booking status in the database
+        $updateQry = "UPDATE tbl_booking SET booking_status = " . $data['booking_status'] . " WHERE booking_id = $bookingId";
+        $con->query($updateQry);
+        // Set email body
         $mail->Body = "Your booking status has been updated to: $newStatus";
-
         if ($mail->send()) {
             // Email sent successfully
             echo 'Email sent successfully';
@@ -48,11 +67,6 @@ if (isset($_GET['bid'])) {
             // Email could not be sent
             echo 'Email could not be sent. Error: ' . $mail->ErrorInfo;
         }
-
-        // Update booking status in the database (Assuming the 'booking_status' field exists in your table)
-        $updateQry = "UPDATE tbl_booking SET booking_status = $newStatus WHERE booking_id = $bookingId";
-        $con->query($updateQry);
-
         ?>
         <script>
             alert('Updated');

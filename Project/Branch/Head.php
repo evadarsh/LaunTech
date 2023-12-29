@@ -69,7 +69,7 @@ $totalBookingsAmount = $bookingAmountData["total_bookings"];
 
             <!-- Nav Item - Bookings.php -->
                         <li class="nav-item">
-                <a class="nav-link" href="Bookings.php">
+                <a class="nav-link" href="Bookings1.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Orders</span></a>
             </li>

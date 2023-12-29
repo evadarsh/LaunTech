@@ -1,4 +1,11 @@
+<?php
+include("../Assets/Connection/Connection.php");
+session_start();
+ob_start();
+include('Head.php');
 
+
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +14,20 @@
     <title>Star Rating and Comment</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../Assets/Templates/Main/lib/easing/easing.min.js"></script>
+    <script src="../Assets/Templates/Main/lib/waypoints/waypoints.min.js"></script>
+    <script src="../Assets/Templates/Main/lib/counterup/counterup.min.js"></script>
+    <script src="../Assets/Templates/Main/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../Assets/Templates/Main/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../Assets/Templates/Main/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../Assets/Templates/Main/js/main.js"></script>
     <style>
         .progress-label-left
         {
@@ -149,4 +167,9 @@
         }); 
     })
         </script>
+</html>
+<?php
+include('Foot.php');
+ob_flush();
+?>
 </html>
