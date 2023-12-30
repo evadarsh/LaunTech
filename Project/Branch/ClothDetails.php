@@ -23,53 +23,54 @@ if (isset($_GET['bid'])) {
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title style="text-align: center;">View Booked Clothes</title>
 </head>
+
 <body>
-<style>
+    <style>
         h2 {
             text-align: center;
         }
+
         h3 {
             text-align: center;
         }
-        p 
-        {
+
+        p {
             text-align: center;
         }
     </style>
     <h2>Booked Clothes</h2>
     <h3></h3>
-    <table align= "center" cellpadding="10" border='1'>
+    <table align="center" cellpadding="10" border='1'>
         <tr>
             <td>Sl.No</td>
             <td>Cloth</td>
             <td>Quantity</td>
-            <td>Amount</td>
         </tr>
         <?php
         $i = 0;
         $resCloth = $con->query($selCloth);
         while ($dataCloth = $resCloth->fetch_assoc()) {
             $i++;
-            ?>
+        ?>
             <tr>
-    <td><?php echo $i ?></td>
-    <td><?php echo $dataCloth['subcategory_name']; ?></td>
-    <td><?php echo $dataCloth['cloth_quantity'] ?></td>
-    <td><?php echo $dataCloth['cloth_amount'] ?></td>   
-</tr>
+                <td><?php echo $i ?></td>
+                <td><?php echo $dataCloth['subcategory_name']; ?></td>
+                <td><?php echo $dataCloth['cloth_quantity'] ?></td>
+            </tr>
 
         <?php
         }
         ?>
     </table>
-
 </body>
 <?php
 include('Foot.php');
 ob_flush();
 ?>
+
 </html>

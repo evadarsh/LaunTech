@@ -64,8 +64,13 @@ include('Head.php');
 											</div>
 											<div class="col-7 d-flex align-items-center">
 												<div class="numbers">
-													<p class="card-category">Subscribers</p>
-													<h4 class="card-title">1303</h4>
+													<p class="card-category">Packages</p>
+													<h4 class="card-title"><?php
+                            						$sel = "select count(packagebooking_id) as id from tbl_packagebooking";
+                            						$res = $con->query($sel);
+                            						$data = $res->fetch_assoc(); 
+                            						echo $data["id"];
+                                                        ?></h4>
 												</div>
 											</div>
 										</div>
@@ -83,8 +88,13 @@ include('Head.php');
 											</div>
 											<div class="col-7 d-flex align-items-center">
 												<div class="numbers">
-													<p class="card-category">Order</p>
-													<h4 class="card-title">576</h4>
+													<p class="card-category">Orders</p>
+													<h4 class="card-title"><?php
+                            						$sel = "select count(booking_id) as id from tbl_booking";
+                            						$res = $con->query($sel);
+                            						$data = $res->fetch_assoc(); 
+                            						echo $data["id"];
+                                                        ?></h4>
 												</div>
 											</div>
 										</div>

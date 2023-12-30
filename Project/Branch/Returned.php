@@ -75,7 +75,7 @@ if (isset($_GET['bid'])) {
 ?>
         <script>
             alert('Status Updated Successfully');
-            window.location = "Bookings.php";
+            window.location = "Returned.php";
         </script>
 <?php
     } else {
@@ -109,7 +109,7 @@ if (isset($_GET['bid'])) {
         </thead>
         <tbody>
             <?php
-            $selQry = "select * from tbl_booking b inner join tbl_user u on u.user_id=b.user_id where b.branch_id=" . $_SESSION['bid'];
+            $selQry = "SELECT * FROM tbl_booking b INNER JOIN tbl_user u ON u.user_id = b.user_id WHERE b.branch_id=" . $_SESSION['bid'] . " AND b.booking_status = 6";
             $res = $con->query($selQry);
             $i = 0;
             while ($data = $res->fetch_assoc()) {
@@ -117,7 +117,7 @@ if (isset($_GET['bid'])) {
             ?>
                 <tr>
                     <td><?php echo $i ?></td>
-                    <td><a href="UserDetails.php?uid=<?php echo $data['user_id']; ?>"><?php echo $data['user_name']; ?></a></td>
+                    <td><?php echo $data['user_name'] ?></td>
                     <td><?php echo $data['user_contact'] ?></td>
                     <td><?php echo $data['booking_date'] ?></td>
                     <td>
@@ -127,7 +127,6 @@ if (isset($_GET['bid'])) {
                         $dataCloth = $resCloth->fetch_assoc();
                         echo $dataCloth['cloth'];
                         ?>
-                        <a href="ClothDetails.php?bid=<?php echo $data['booking_id']; ?>">View</a>
                     </td>
                     <td><?php echo $data['booking_amount'] ?></td>
                     <td>

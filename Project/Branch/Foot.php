@@ -5,13 +5,40 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; LaunTech 2023</span>
-                    </div>
+            <div class="container-fluid bg-primary text-white mt-5 pt-5 px-sm-3 px-md-5">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+    
+                <p>Ready to transform your laundry management experience? Contact us today..</p>
+                <div class="d-flex justify-content-start mt-4">
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
-            </footer>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+            <h4 class="text-white mb-4">Get In Touch</h4>
+                <p>LaunTech can make a difference for your business or personal laundry needs</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Kerala,India</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+91 7510849660 ,+91 9567455445</p>
+                <p><i class="fa fa-envelope mr-2"></i>launtech2023@gmail.com</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white py-4 px-sm-3 px-md-5">
+        <p class="m-0 text-center text-white">
+            &copy; <a class="text-white font-weight-medium" href="#">LaunTech</a>. All Rights Reserved. 
+			
+			<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+			Designed by Adarsh & Adhithyakiran BCA 21
+        </p>
+    </div>
             <!-- End of Footer -->
 
         </div>

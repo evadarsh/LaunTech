@@ -1,9 +1,9 @@
 <?php
 session_start();
 include("../Assets/Connection/Connection.php");
-$selqry="select * from tbl_branch u inner join tbl_place  inner join tbl_district   where branch_id=".$_SESSION['bid'] ;
-$result=$con->query($selqry);
-$data=$result->fetch_assoc();
+$selqry = "select * from tbl_branch u inner join tbl_place  inner join tbl_district   where branch_id=" . $_SESSION['bid'];
+$result = $con->query($selqry);
+$data = $result->fetch_assoc();
 // Assuming you have a function to fetch the total number of bookings
 $bookingCountQry = "SELECT COUNT(*) AS total_bookings FROM tbl_booking WHERE branch_id=" . $_SESSION['bid'];
 $bookingCountResult = $con->query($bookingCountQry);
@@ -33,9 +33,7 @@ $totalBookingsAmount = $bookingAmountData["total_bookings"];
     <link rel="shortcut icon" type="image/x-icon" href="../Assets/Files/Logo/favicon.ico">
     <!-- Custom fonts for this template-->
     <link href="../Assets/Templates/Branch/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../Assets/Templates/Branch/css/sb-admin-2.min.css" rel="stylesheet">
@@ -53,7 +51,7 @@ $totalBookingsAmount = $bookingAmountData["total_bookings"];
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon ">
-                <img src="../Assets/Files/Logo/favicon-32x32.png" alt="Your Image Alt Text">
+                    <img src="../Assets/Files/Logo/favicon-32x32.png" alt="Your Image Alt Text">
                 </div>
                 <div class="sidebar-brand-text mx-3">LaunTech</div>
             </a>
@@ -67,14 +65,70 @@ $totalBookingsAmount = $bookingAmountData["total_bookings"];
                     <span>Dashboard</span></a>
             </li>
 
-            <!-- Nav Item - Bookings.php -->
-                        <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="Bookings.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Orders</span></a>
+                    <i class="fas fa-chart-area"></i>
+                    <span>Orders</span>
+                </a>
             </li>
 
-            <!-- Nav Item - Complaints -->
+            <li class="nav-item">
+                <a class="nav-link" href="NewRequest.php">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>New Request</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Accepted.php">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Accepted</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Rejected.php">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Rejected</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="ClothPicked.php">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Cloth Picked</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="WashingFinished.php">
+                    <i class="fas fa-check-double"></i>
+                    <span>Washing Finished</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="PaymentDone.php">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Payment Done</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Returned.php">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                    <span>Returned</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Cancelled.php">
+                    <i class="fas fa-times"></i>
+                    <span>Cancelled</span>
+                </a>
+            </li>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="Complaints.php">
                     <i class="fas fa-fw fa-table"></i>
@@ -90,7 +144,7 @@ $totalBookingsAmount = $bookingAmountData["total_bookings"];
             </div>
 
             <!-- Sidebar Message -->
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -110,28 +164,25 @@ $totalBookingsAmount = $bookingAmountData["total_bookings"];
                     </button>
 
                     <!-- Topbar Search -->
-                    
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
 
-                        
 
-                        
+
+
+
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $data["branch_name"]; ?></span>
-                                <img class="img-profile rounded-circle"
-                                src="../Assets/Files/Branch/<?php echo $data['branch_photo']; ?>" class="img-fluid" alt="Branch Photo">
+                                <img class="img-profile rounded-circle" src="../Assets/Files/Branch/<?php echo $data['branch_photo']; ?>" class="img-fluid" alt="Branch Photo">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="BranchProfile.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile

@@ -45,26 +45,49 @@ if(isset($_GET['id'])){
         </tr>
     </thead>
     <tbody>
-        <?php
-        $selQry = "select * from tbl_complaint c inner join tbl_user u on u.user_id=c.user_id where branch_id='" . $_SESSION['bid']."' and complaint_status='0'";
-        $res = $con->query($selQry);
-        $i = 0;
-        while ($data = $res->fetch_assoc()) {
-            $i++;
-            ?>
+    <?php
+$selQry = "select * from tbl_complaint c inner join tbl_user u on u.user_id=c.user_id where branch_id='" . $_SESSION['bid'] . "' and complaint_status='0'";
+$res = $con->query($selQry);
+if ($res->num_rows > 0) {
+    ?>
+    <table class="table table-bordered table-striped">
+        <thead>
             <tr>
-                <td><?php echo $i ?></td>
-                <td><?php echo $data['complaint_date'] ?></td>
-                <td><?php echo $data['complaint_title'] ?></td>
-                <td><?php echo $data['complaint_details'] ?></td>
-                <td><?php echo $data['user_name'] ?></td>
-                <td>
-                <a href="Complaints.php?cid=<?php echo $data['complaint_id'] ?>" class="btn btn-primary">Reply</a><br>
-                </td>
+                <th>Sl.No</th>
+                <th>Date</th>
+                <th>Title</th>
+                <th>Details</th>
+                <th>User</th>
+                <th>Action</th>
             </tr>
+        </thead>
+        <tbody>
             <?php
-        }
-        ?>
+            $i = 0;
+            while ($data = $res->fetch_assoc()) {
+                $i++;
+                ?>
+                <tr>
+                    <td><?php echo $i ?></td>
+                    <td><?php echo $data['complaint_date'] ?></td>
+                    <td><?php echo $data['complaint_title'] ?></td>
+                    <td><?php echo $data['complaint_details'] ?></td>
+                    <td><?php echo $data['user_name'] ?></td>
+                    <td>
+                        <a href="Complaints.php?cid=<?php echo $data['complaint_id'] ?>" class="btn btn-primary">Reply</a><br>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+<?php
+} else {
+    echo "No Complaints";
+}
+?>
+
     </tbody>
 </table> 
 </body>
