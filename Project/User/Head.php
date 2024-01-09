@@ -87,7 +87,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Book Now</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                            <a href="SearchBranch.php" class="nav-item nav-link">Order Cloths</a>
+                            <a href="SearchBranch.php" class="nav-item nav-link">Wash Cloths</a>
                             <a href="PackageSubscribe.php" class="nav-item nav-link">Subscribe Package</a>   
                         </div>
                         </div>
