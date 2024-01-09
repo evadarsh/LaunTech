@@ -45,4 +45,12 @@
 <script src="../Assets/Templates/Admin/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <script src="../Assets/Templates/Admin/js/ready.min.js"></script>
 <script src="../Assets/Templates/Admin/js/demo.js"></script>
+<script>
+    function confirmLogout() {
+        var confirmation = confirm("Are you sure you want to Logout?");
+        if (confirmation) {
+            window.location.href = "Logout.php";
+        }
+    }
+</script>
 </html>

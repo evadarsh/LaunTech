@@ -136,7 +136,7 @@ if (isset($_POST['btnlogin'])) {
                                         <div class="custom-checkbox mb-4">
                                             <input class="form-check-input" type="checkbox" id="branchLoginCheckbox" name="branchLoginCheckbox">
                                             <label class="checkmark" for="branchLoginCheckbox"></label>
-                                            <label class="form-check-label" for="branchLoginCheckbox">Are you sign in a Branch?</label>
+                                            <label class="form-check-label" for="branchLoginCheckbox">Sign in as a Branch?</label>
                                         </div>
 
 
@@ -148,11 +148,11 @@ if (isset($_POST['btnlogin'])) {
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" class="form-control" name="txt_password" />
+                                            <input type="password" id="form2Example22" class="form-control" name="txt_password" placeholder="Enter your Password" />
                                             <label class="form-label" for="form2Example22">Password</label>
                                         </div>
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" name="btnlogin" type="submit">Log in</button>
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" name="btnlogin"  type="submit">Log in</button>
                                             <a class="text-muted" href="#!">Forgot password?</a>
                                         </div>
 

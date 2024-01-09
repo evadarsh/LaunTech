@@ -32,7 +32,7 @@ $data = $result->fetch_assoc();
 	<div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
-				<a href="Homepage.php" class="logo">
+				<a href="#" class="logo">
 					<video autoplay muted loop width=100%>
 						<source src="../Assets/Files/Logo/Laun.mp4" type="video/mp4">
 						Your browser does not support the video tag.
@@ -72,13 +72,8 @@ $data = $result->fetch_assoc();
 									</div>
 								</li>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="ti-user"></i> My Profile</a>
-								<a class="dropdown-item" href="#"></i> My Balance</a>
-								<a class="dropdown-item" href="#"><i class="ti-email"></i> Inbox</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Logout</a>
+								<a class="dropdown-item" href="MyProfile.php"><i class="ti-user"></i> My Profile</a>
+								<a href="Logout.php" class="dropdown-item"  onclick="confirmLogout()">Logout</a>
 							</ul>
 							<!-- /.dropdown-user -->
 						</li>
@@ -103,6 +98,13 @@ $data = $result->fetch_assoc();
 					</div>
 				</div>
 				<ul class="nav">
+					<li class="nav-item">
+						<a href="BranchRegistration.php">
+							<i class="la la-registered"></i>
+							<p>BRANCH REGISTRATION</p>
+							<span class="badge badge-danger">Add</span>
+						</a>
+					</li>
 					<li class="nav-item">
 						<?php
 						
@@ -185,13 +187,6 @@ $data = $result->fetch_assoc();
 							<i class="la la-gift"></i>
 							<p>PACKAGES</p>
 							<span class="badge badge-count"><?php echo $packageCount; ?></span>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="BranchRegistration.php">
-							<i class="la la-registered"></i>
-							<p>BRANCH REGISTRATION</p>
-							<span class="badge badge-danger">Add</span>
 						</a>
 					</li>
 					<li class="nav-item">
